@@ -45,6 +45,9 @@ if choise in ("1"):
             print("\nError: 'fastfetch' is not installed on your system.")
         input("\nPress Enter to continue...")
 
+    elif choise == "5":
+            print("bye bye!")
+
     else:
         print("\nInvalid choice. Please try again.")
         input("\nPress Enter to continue...")
