@@ -41,6 +41,8 @@ while True:
         print("4. Run Fastfetch (fastfetch)")
         print("5. Disk info ")
         print("6. Run htop (htop) ")
+        print("7. Reboot system (sudo reboot)")
+        print("8. Shutdown system (sudo power off)")
         print("0. Exit to Main Menu")
         print("=" * 40)
 
@@ -87,6 +89,16 @@ while True:
             print("running htop")
             time.sleep(1)
             subprocess.run(["kitty", "--hold", "-e", "htop"])
+
+        elif sub_choice == "7":
+            print("Rebooting system")
+            time.sleep(1)
+            subprocess.run(["sudo", "reboot"])
+
+        elif sub_choice == "8":
+            print("Shutdown system")
+            time.sleep(1)
+            subprocess.run(["sudo", "poweroff"])
 
         elif sub_choice == "0":
             print("\nReturning to main menu...")
