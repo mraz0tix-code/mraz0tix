@@ -22,7 +22,8 @@ def get_disk_progress_bar(path="/"):
 while True:
     os.system("clear || cls")
     
-    print("\n               Main Menu")
+    print("=" * 40)
+    print("               Main Menu")
     print("=" * 40)
     print("1. Toolbox (by mraz0tix)")
     print("2. Open my site (mraz0tix-code.github.io)")
@@ -43,10 +44,12 @@ while True:
             print("4. Run Fastfetch (fastfetch)")
             print("5. Disk info ")
             print("6. Run htop (htop) ")
+            print("7. Reboot system (sudo reboot)")
+            print("8. Shutdown system (sudo power off)")
             print("0. Exit to Main Menu")
             print("=" * 40)
 
-            sub_choice = input("Select a menu option (0-6): ")
+            sub_choice = input("Select a menu option (0-8): ")
 
             if sub_choice == "1":
                 print("\nChecking connection...")
@@ -79,6 +82,15 @@ while True:
                 print("\nRunning htop...")
                 subprocess.run(["htop"])
                 input("\nPress Enter to continue...")
+
+            elif sub_choice == "7":
+                print("Rebooting system")
+                subprocess.run(["sudo", "reboot"])
+
+            elif sub_choice == "8":
+                print("Shutdown system")
+                time.sleep(1)
+                subprocess.run(["sudo", "poweroff"])
 
             elif sub_choice == "0":
                 print("\nReturning to main menu...")
