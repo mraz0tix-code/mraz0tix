@@ -1,8 +1,5 @@
 import os
 
-def Hello():
-    print("Hello this is my program!")
-
 def Calculator():
     print("Welcome!")
     os.system("clear || cls")
@@ -34,5 +31,4 @@ def Calculator():
     print("=" * 40, "       Calculator_V1")
 
 if __name__ == "__main__":
-    Hello()
     Calculator()
