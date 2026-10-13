@@ -2,7 +2,6 @@
 import subprocess
 import os
 import webbrowser
-import math
 import shutil
 import time
 
@@ -19,19 +18,9 @@ def get_disk_progress_bar(path="/"):
     
     return f"[{path}]: {bar} {percent:.1f}% [Free: {free_gb:.1f} GB of {total_gb:.1f} GB]"
 
-while True:
-    
-    print("\n               Main Menu")
-    print("=" * 40)
-    print("1. Toolbox (by mraz0tix)")
-    print("2. Open my site (mraz0tix-code.github.io)")
-    print("3. Exit the program")
-    print("=" * 40)
-    main_choice = input("Select a menu option (1-3): ")
-
-    if main_choice == "1":
+def Run_Toolbox():
+    while True:
         os.system("clear || cls")
-
         print("=" * 40)
         print("          Toolbox by mraz0tix!")
         print("=" * 40)
@@ -46,39 +35,29 @@ while True:
         print("0. Exit to Main Menu")
         print("=" * 40)
 
-        sub_choice = input("Select a menu option (1-7): ")
-
-        time.sleep(1)
+        sub_choice = input("Select a menu option (0-8): ")
 
         if sub_choice == "1":
             print("\nChecking connection...")
-            subprocess.run(["ping", "-c", "3", "8.8.8.8"])
+            subprocess.run(["kitty", "--hold", "ping", "-c", "3", "8.8.8.8"])
             input("\nPress Enter to continue...")
-
-            time.sleep(1)
 
         elif sub_choice == "2":
             print("\nKernel Information:")
             subprocess.run(["uname", "-a"])
             input("\nPress Enter to continue...")
 
-            time.sleep(1)
-
         elif sub_choice == "3":
             print("\nListening ports in the system:")
-            subprocess.run(["kitty", "--hold", "-e", "ss", "-tuln"])
+            subprocess.run(["ss", "-tuln"])
             input("\nPress Enter to continue...")
-
-            time.sleep(1)
 
         elif sub_choice == "4":
             try:
-                subprocess.run(["kitty", "--hold", "-e", "fastfetch"])
+                subprocess.run(["kitty", "--hold", "fastfetch"])
             except FileNotFoundError:
-                print("\nError: 'fastfetch or kitty' is not installed on your system.")
+                print("\nError: 'fastfetch' is not installed on your system.")
             input("\nPress Enter to continue...")
-         
-            time.sleep(1)
 
         elif sub_choice == "5":
             print("\n=== DISK STORAGE ANALYSIS ===")
@@ -86,41 +65,56 @@ while True:
             input("\nPress Enter to continue...")
     
         elif sub_choice == "6":    
-            print("running htop")
-            time.sleep(1)
-            subprocess.run(["kitty", "--hold", "-e", "htop"])
+            print("\nRunning htop...")
+            subprocess.run(["kitty", "--hold", "htop"])
+            input("\nPress Enter to continue...")
 
         elif sub_choice == "7":
-            print("Rebooting system")
+            print("\n[WARNING] Rebooting system")
             time.sleep(1)
-            subprocess.run(["sudo", "reboot"])
+            subprocess.run(["kitty", "--hold", "sudo", "reboot"])
 
         elif sub_choice == "8":
-            print("Shutdown system")
+            print("\n[WARNING] Shutdown system...")
             time.sleep(1)
-            subprocess.run(["sudo", "poweroff"])
+            subprocess.run(["kitty", "--hold", "sudo", "poweroff"])
 
         elif sub_choice == "0":
             print("\nReturning to main menu...")
-            time.sleep(0.5)
+            break
 
         else:
             print("\nInvalid choice inside Toolbox. Please try again.")
             input("\nPress Enter to continue...")
 
-            time.sleep(1)
+def Main_Menu():
+    while True:
+        os.system("clear || cls")
+        print("=" * 40)
+        print("               Main Menu")
+        print("=" * 40)
+        print("1. Toolbox (by mraz0tix)")
+        print("2. Open my site (mraz0tix-code.github.io)")
+        print("3. Exit the program")
+        print("=" * 40)
+        main_choice = input("Select a menu option (1-3): ")
 
-    elif main_choice == "2":
-        print("\nOpening mraz0tix's awesome website...")
-        webbrowser.open("https://mraz0tix-code.github.io/")
-        input("\nPress Enter to continue...")
+        if main_choice == "1":
+            Run_Toolbox()
 
-        time.sleep(1)
+        elif main_choice == "2":
+            print("\nOpening mraz0tix's awesome website...")
+            webbrowser.open("https://mraz0tix-code.github.io/")
+            input("\nPress Enter to continue...")
 
-    elif main_choice == "3":
-        print("\nOkay! Goodbye!")
-        break
+        elif main_choice == "3":
+            print("\nOkay! Goodbye!")
+            os.system("clear || cls")
+            break
 
-    else:
-        print("\nInvalid choice in main menu. Please try again.")
-        input("\nPress Enter to continue...")
+        else:
+            print("\nInvalid choice in main menu. Please try again.")
+            input("\nPress Enter to continue...")
+
+if __name__ == "__main__":
+    Main_Menu()
