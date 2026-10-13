@@ -1,16 +1,38 @@
-#One partion:
+import os
 
-a = int(input("a = ?: "))
-b = int(input("b = ?: "))
+def Hello():
+    print("Hello this is my program!")
 
-#Two partion:
+def Calculator():
+    print("Welcome!")
+    os.system("clear || cls")
+    print("\n")
+    print("=" * 40)
+    print("             Calculator_V1")
+    print("=" * 40)
+    input("\nPlease click the button enter!")
 
-print("")
-print("a + b =", a + b)
-print("a - b =", a - b)
-print("a * b =", a * b)
-print("a / b =", a / b)
+    os.system("clear || cls")
 
-#Thank you some much!
+    print("=" * 40, "      Calculator_V1")
 
-print ("Thank you some much!")
+    a = float(input("a = ?: "))
+    b = float(input("b = ?: "))
+    
+    print("=" * 40, "      Calculator_V1")
+
+    print(f"a + b = {a + b}")
+    print(f"a - b = {a - b}")
+    print(f"a * b = {a * b}")
+    
+    if b == 0:
+        print("0 / 0 == ERROR!") 
+
+    else:
+        print(f"a / b = {a / b}")
+
+    print("=" * 40, "       Calculator_V1")
+
+if __name__ == "__main__":
+    Hello()
+    Calculator()
