@@ -5,6 +5,33 @@ import webbrowser
 import shutil
 import time
 
+def Calculator():
+    os.system("clear || cls")
+    print("=" * 40)
+    print("             Calculator_V1")
+    print("=" * 40)
+    input("\nPlease click the button enter!")
+
+    os.system("clear || cls")
+    print("=" * 40, "      Calculator_V1")
+
+    a = float(input("a = ?: "))
+    b = float(input("b = ?: "))
+    
+    print("=" * 40, "      Calculator_V1")
+
+    print(f"a + b = {a + b}")
+    print(f"a - b = {a - b}")
+    print(f"a * b = {a * b}")
+    
+    if b == 0:
+        print("0 / 0 == ERROR!") 
+    else:
+        print(f"a / b = {a / b}")
+
+    print("=" * 40, "       Calculator_V1")
+    input("\nPress Enter to return to Main Menu...")
+
 def get_disk_progress_bar(path="/"):
     total, used, free = shutil.disk_usage(path)
     total_gb = total / (1024 ** 3)
@@ -95,9 +122,10 @@ def Main_Menu():
         print("=" * 40)
         print("1. Toolbox (by mraz0tix)")
         print("2. Open my site (mraz0tix-code.github.io)")
-        print("3. Exit the program")
+        print("3. Run Calculator")
+        print("0. Exit the program")
         print("=" * 40)
-        main_choice = input("Select a menu option (1-3): ")
+        main_choice = input("Select a menu option (0-3): ")
 
         if main_choice == "1":
             Run_Toolbox()
@@ -108,6 +136,9 @@ def Main_Menu():
             input("\nPress Enter to continue...")
 
         elif main_choice == "3":
+            Calculator()
+
+        elif main_choice == "0":
             print("\nOkay! Goodbye!")
             os.system("clear || cls")
             break
